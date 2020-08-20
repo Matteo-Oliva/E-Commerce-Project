@@ -5,18 +5,25 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MenuComponent } from './features/layout/menu/menu.component';
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+import { FooterComponent } from './features/layout/footer/footer.component';
+  
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgMatSearchBarModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
