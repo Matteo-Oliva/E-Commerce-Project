@@ -1,0 +1,27 @@
+.mat-toolbar {
+    background-color:rgba(0,0,0,0.8);  ;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1;
+    backdrop-filter: saturate(180%) blur(20px);
+    font-family: "Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    
+
+}
+
+
+
+.mat-menu-item {
+    font-family: "Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.mat-button {
+    font-family: "Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+#menu_open{
+    color: orange;
+    
+}
