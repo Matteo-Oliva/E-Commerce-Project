@@ -14,7 +14,7 @@ import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { FooterComponent } from './features/layout/footer/footer.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RegistrationComponent } from './features/account/registration/registration.component';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    NgMatSearchBarModule,     
+    NgMatSearchBarModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }

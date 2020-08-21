@@ -1,0 +1,23 @@
+#registration-container{
+  display: block;
+  width: 600px;
+  margin: 50px auto;
+}
+
+.registration-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.btn-registration{
+  margin: 0 10px;
+}
