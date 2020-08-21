@@ -11,8 +11,6 @@ import { AuthenticationService } from './../../../shared/services/authentication
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password; string;
   loginForm: FormGroup;
   invalidLogin: boolean;
 
@@ -36,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   login() {
-    this.authenticationService.login(this.username, this.password);
+    this.authenticationService.login(this.username , this.password);
   }
 
   // tslint:disable-next-line: typedef
@@ -44,4 +42,11 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  get username(): any {
+    return this.loginForm.get('username');
+  }
+
+  get password(): any {
+    return this.loginForm.get('password');
+  }
 }

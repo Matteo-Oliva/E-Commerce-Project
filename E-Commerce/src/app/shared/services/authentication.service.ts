@@ -34,7 +34,7 @@ export class AuthenticationService {
   public logout(): void {
     if (this.logged$) {
       this.logged$.next(false);
-      this.router.navigate( ['/dashboard'] );
+      this.router.navigate( ['/'] );
     } else {
       console.warn('User is already logged off');
     }
