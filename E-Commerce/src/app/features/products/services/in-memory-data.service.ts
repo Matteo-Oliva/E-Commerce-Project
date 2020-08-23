@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class InMemoryDataService implements InMemoryDbService {
 // tslint:disable-next-line: typedef
 createDb(){
-  const PRODUCTS = [
+  const products = [
     // tslint:disable-next-line: max-line-length
     {id: 1, title: 'Xiaomi Redmi 9', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61Wt%2B%2BW1WpL._AC_SL1000_.jpg', description: 'Più potenza per il tuo divertimento. Prestazioni potenti e stabili, multitasking fluido, esperienza audiovisiva e di gioco senza interruzioni.', price: 126, review: 4},
     // tslint:disable-next-line: max-line-length
@@ -20,6 +20,6 @@ createDb(){
     // tslint:disable-next-line: max-line-length
     {id: 5, title: 'Apple iPhone 11 (64GB)', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/715HCLsOHbL._AC_SL1500_.jpg', description: 'Spettacolare LCD Liquid Retina all-screen da 6,1. Resistenza all\'acqua fino a 2 metri per 30 minuti', price: 249, review: 5},
   ];
-  return {PRODUCTS};
+  return {products};
 }
 }
