@@ -1,3 +1,5 @@
+import { CardComponent} from './features/products/card/card.component';
+import { ListComponent } from './features/products/list/list.component';
 import { MaterialModule } from './shared/libraries/material/material.module';
 import { InMemoryDataService } from './features/products/services/in-memory-data.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,7 +26,9 @@ import { DetailComponent } from './features/products/detail/detail.component';
     LoginComponent,
     MenuComponent,
     FooterComponent,
-    DetailComponent
+    DetailComponent,
+    ListComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

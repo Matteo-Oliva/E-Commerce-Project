@@ -4,14 +4,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
     z-index: 1;
     backdrop-filter: saturate(180%) blur(20px);
     font-family: "Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    
-
-}
-
+    }
 
 
 .mat-menu-item {
