@@ -1,15 +1,14 @@
-.example-card {
-    max-width: 400px;
-    
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-  .mat-card-content .p {
-    flex-direction: row;
-  }
+.card {
+  max-width: 300px;
+  max-height: 300px;
+  min-width: 300px;
+  min-height: 300px;
+  margin: 10px;
+}
 
+.mat-card-image {
+  width: 200px;
+  height: 200px;
+}
   
  

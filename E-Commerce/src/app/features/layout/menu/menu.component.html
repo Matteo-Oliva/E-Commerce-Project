@@ -1,7 +1,8 @@
 <mat-toolbar>
     <img src="assets/image/logo.png" width="160" height="58" />
 
-    <div fxShow="true" fxHide.lt-md="true">
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm></button>
+    <div fxShow="true" fxHide.lt-md>
         <button mat-button>Home</button>
 
         <button mat-button [matMenuTriggerFor]="androidMenu">Android</button>
@@ -16,7 +17,7 @@
             </span>
         </button>
         <mat-menu #accedi="matMenu" xPosition="after">
-            <button mat-menu-item class="login" routerLink="/login">Login</button>
+            <button mat-menu-item class="login" routerLink='/login'>Login</button>
 
             <ng-template #logged>
                 <button mat-menu-item>Logout</button>
@@ -24,19 +25,19 @@
             <button mat-menu-item routerLink="/registration">Iscriviti</button>
 
         </mat-menu>
-
     </div>
+    
 
 
     <div fxShow="true" fxHide.gt-sm="true">
-        <a href="#" (click)="sidenav.toggle('sx')"><span class="material-icons" id="menu_open">
+        <a href="#" (click)="sidenav.toggle('sx')" mat-button ><span class="material-icons" id="menu_open">
                 menu_open
             </span></a>
     </div>
 </mat-toolbar>
 
-<mat-sidenav-container fxFlexFill class="container">
-    <mat-sidenav #sidenav fxLayout="column">
+<mat-sidenav-container fxFlexFill class="container" >
+    <mat-sidenav #sidenav mode="side" fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
         <div fxLayout="column">
             <button (click)="sidenav.toggle()" mat-button>
                 <mat-icon>menu</mat-icon>
@@ -59,11 +60,17 @@
                 <ng-template #logged>
                     <button mat-menu-item>Logout</button>
                 </ng-template>
+
+                
+
                 <button mat-menu-item routerLink="/registration">Iscriviti</button>
+
             </mat-menu>
 
 
         </div>
     </mat-sidenav>
-
+    <mat-sidenav-content fxFlexFill>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
 </mat-sidenav-container>
