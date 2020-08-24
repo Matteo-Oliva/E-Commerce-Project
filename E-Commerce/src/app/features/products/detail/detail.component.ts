@@ -16,6 +16,7 @@ product: Product;
              private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getProduct();
   }
 
   getProduct():void {
