@@ -1,17 +1,17 @@
 <div id="login-container">
   <h1>Login</h1>
-  <form class="login-form" [formGroup]="loginForm">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
     <div fxLayout="column">
 
-      <mat-form-field class="form-element">
+      <mat-form-field class="form-element" fxFlex>
         <mat-label>Username</mat-label>
-        <input type="text" formControlName="username" name="username" placeholder="Username" required minlength matInput>
+        <input type="text" formControlName="username" name="username" required matInput>
       </mat-form-field>
 
-      <mat-form-field class="form-element">
+      <mat-form-field class="form-element" fxFlex>
         <mat-label>Password</mat-label>
-        <input type="password" formControlName="password" name="password" placeholder="Password" required minlength matInput>
+        <input type="password" formControlName="password" name="password" required minlength matInput>
       </mat-form-field>
 
       <div *ngIf="invalidLogin" id="error">
@@ -19,9 +19,8 @@
       </div>
 
       <div fxLayout="row" fxLayoutAlign="end end">
-        <button (click)="login()" mat-raised-button color="primary" class="btn-login">Login</button>
+        <button mat-raised-button color="primary" class="btn-login">Login</button>
         <button (click)="cancel()" mat-raised-button color="warn">Cancel</button>
-        <button mat-raised-button color="accent" class="btn-login">Iscriviti</button>
       </div>
 
     </div>

@@ -8,13 +8,12 @@ import { RegistrationComponent } from './features/account/registration/registrat
 const routes: Routes = [
 
   { path: '', redirectTo: '/list', pathMatch: 'full' },
-
   { path: 'login', component: LoginComponent },
   { path: 'list', component: ListComponent },
-  { path:'detail/:id', component: DetailComponent},
+  { path: 'detail/:id', component: DetailComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: '**', component: ListComponent }
-  
+
 ];
 
 @NgModule({
