@@ -28,18 +28,18 @@ export class LoginComponent implements OnInit {
     });
 
     this.authenticationService.isLogged$().subscribe(result => {
-      result ? this.router.navigate(['/']) : this.invalidLogin = true;
+      result ? this.router.navigate(['/list']) : this.invalidLogin = true;
     });
   }
 
   // tslint:disable-next-line: typedef
-  login() {
+  onSubmit() {
     this.authenticationService.login(this.username , this.password);
   }
 
   // tslint:disable-next-line: typedef
   cancel() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/list']);
   }
 
   get username(): any {
