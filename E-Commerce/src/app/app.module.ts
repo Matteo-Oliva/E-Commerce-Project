@@ -17,6 +17,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './features/products/detail/detail.component';
 import { RegistrationComponent } from './features/account/registration/registration.component';
+import { CartComponent } from './features/basket/cart/cart.component';
 
 
 
@@ -29,7 +30,8 @@ import { RegistrationComponent } from './features/account/registration/registrat
     DetailComponent,
     ListComponent,
     CardComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CartComponent
 
   ],
   imports: [
