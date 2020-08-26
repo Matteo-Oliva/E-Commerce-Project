@@ -12,37 +12,37 @@
         </mat-menu>
 
         <button mat-button class="login" [matMenuTriggerFor]="accedi">
-            <span class="material-icons">
-                account_circle
-            </span>
+            <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #accedi="matMenu" xPosition="after">
             <button mat-menu-item class="login" routerLink='/login'>Login</button>
-
             <ng-template #logged>
                 <button mat-menu-item>Logout</button>
             </ng-template>
             <button mat-menu-item routerLink="/registration">Iscriviti</button>
-          
-            <button mat-menu-item class="cart" routerLink="/cart">Click
-    
-            </button>
         </mat-menu>
+
+        <button mat-button class="shopping" routerLink="/cart">
+            <span class="material-icons">
+                shopping_cart
+                </span>
+        </button>
+
+
         
     </div>
-    
-
-
-    <div fxShow="true" fxHide.gt-sm="true">
-        <a href="#" (click)="sidenav.toggle('sx')" mat-button ><span class="material-icons" id="menu_open">
-                menu_open
-            </span></a>
+    <div fxShow="true" fxHide.gt-sm>
+        <button mat-button href="#" (click)="sidenav.toggle()">
+            <mat-icon id="menu_open">menu_open</mat-icon>                
+        </button>              
     </div>
+    
 </mat-toolbar>
 
-<mat-sidenav-container fxFlexFill class="container" >
-    <mat-sidenav #sidenav mode="side" fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+<mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav fxLayout="column">
         <div fxLayout="column">
+
             <button (click)="sidenav.toggle()" mat-button>
                 <mat-icon>menu</mat-icon>
             </button>
@@ -54,9 +54,11 @@
                 <button mat-menu-item routerLink="">Laptop</button>
             </mat-menu>
 
-            <a routerLink="/cart" class="button fancy-button">
-                <i class="material-icons">shopping_cart</i>Checkout
-              </a>
+             <button mat-mat-button class="shopping" routerLink="/cart">
+                <span class="material-icons">
+                    shopping_cart
+                    </span>
+            </button>
 
             <button mat-button class="login" [matMenuTriggerFor]="accedi">
                 <span class="material-icons">
@@ -69,7 +71,7 @@
                     <button mat-menu-item>Logout</button>
                 </ng-template>
 
-                                       
+
 
                 <button mat-menu-item routerLink="/registration">Iscriviti</button>
 
@@ -81,5 +83,5 @@
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
         <router-outlet></router-outlet>
-      </mat-sidenav-content>
+    </mat-sidenav-content>
 </mat-sidenav-container>
