@@ -10,10 +10,14 @@ h1{
 }
 
 .form-element {
-  padding: 5px;
+  padding: 5px 0px 25px 2px;
   width: 100%;
 }
 
 .btn-login{
   margin: 0 10px;
+}
+
+.invalid-feedback{
+  color: green;
 }

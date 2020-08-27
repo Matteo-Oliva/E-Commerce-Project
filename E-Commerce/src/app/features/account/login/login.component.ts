@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from './../../../shared/services/authentication.service';
+import { first } from 'rxjs/operators';
+import { AlertService } from './../services/alert.service';
+import { AccountService } from '../services/account.service';
 
 
 @Component({
@@ -10,43 +12,56 @@ import { AuthenticationService } from './../../../shared/services/authentication
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  loginForm: FormGroup;
-  invalidLogin: boolean;
+  form: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService,
-    private router: Router
+      private formBuilder: FormBuilder,
+      private route: ActivatedRoute,
+      private router: Router,
+      private accountService: AccountService,
+      private alertService: AlertService
   ) { }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
+      this.form = this.formBuilder.group({
+          username: ['', Validators.required],
+          password: ['', Validators.required]
+      });
 
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(5)]]
-    });
-
-    this.authenticationService.isLogged$().subscribe(result => {
-      result ? this.router.navigate(['/list']) : this.invalidLogin = true;
-    });
+      // get return url from route parameters or default to '/'
+      this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
+
+  // convenience getter for easy access to form fields
+  // tslint:disable-next-line: typedef
+  get f() { return this.form.controls; }
 
   // tslint:disable-next-line: typedef
   onSubmit() {
-    this.authenticationService.login(this.username , this.password);
-  }
+      this.submitted = true;
 
-  // tslint:disable-next-line: typedef
-  cancel() {
-    this.router.navigate(['/list']);
-  }
+      // reset alerts on submit
+      this.alertService.clear();
 
-  get username(): any {
-    return this.loginForm.get('username');
-  }
+      // stop here if form is invalid
+      if (this.form.invalid) {
+          return;
+      }
 
-  get password(): any {
-    return this.loginForm.get('password');
+      this.loading = true;
+      this.accountService.login(this.f.username.value, this.f.password.value)
+          .pipe(first())
+          .subscribe(
+              data => {
+                  this.router.navigate([this.returnUrl]);
+              },
+              error => {
+                  this.alertService.error(error);
+                  this.loading = false;
+              });
   }
 }

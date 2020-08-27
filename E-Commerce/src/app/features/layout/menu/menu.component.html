@@ -15,11 +15,11 @@
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #accedi="matMenu" xPosition="after">
-            <button mat-menu-item class="login" routerLink='/login'>Login</button>
+            <button mat-menu-item class="login" routerLink='/account/login'>Login</button>
             <ng-template #logged>
                 <button mat-menu-item>Logout</button>
             </ng-template>
-            <button mat-menu-item routerLink="/registration">Iscriviti</button>
+            <button mat-menu-item routerLink="/account/register">Sign In</button>
         </mat-menu>
 
         <button mat-button class="shopping" routerLink="/cart">
@@ -28,8 +28,6 @@
                 </span>
         </button>
 
-
-        
     </div>
     <div fxShow="true" fxHide.gt-sm>
         <button mat-button href="#" (click)="sidenav.toggle()">
@@ -66,22 +64,19 @@
                 </span>
             </button>
             <mat-menu #accedi="matMenu" xPosition="after">
-                <button mat-menu-item class="login" routerLink="/login">Login</button>
+                <button mat-menu-item class="login" routerLink="/account/login">Login</button>
                 <ng-template #logged>
                     <button mat-menu-item>Logout</button>
                 </ng-template>
 
-
-
-                <button mat-menu-item routerLink="/registration">Iscriviti</button>
-
-
+                <button mat-menu-item routerLink="/account/register">Sign In</button>
             </mat-menu>
-
 
         </div>
     </mat-sidenav>
+
     <mat-sidenav-content fxFlexFill>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
+
 </mat-sidenav-container>
