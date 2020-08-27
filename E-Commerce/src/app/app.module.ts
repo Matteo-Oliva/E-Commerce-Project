@@ -1,3 +1,6 @@
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './shared/helpers/error.interceptor';
+import { fakeBackendProvider } from './shared/helpers/fake-backend';
 import { CardComponent} from './features/products/card/card.component';
 import { ListComponent } from './features/products/list/list.component';
 import { MaterialModule } from './shared/libraries/material/material.module';
@@ -14,10 +17,11 @@ import { MenuComponent } from './features/layout/menu/menu.component';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { FooterComponent } from './features/layout/footer/footer.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DetailComponent } from './features/products/detail/detail.component';
-import { RegistrationComponent } from './features/account/registration/registration.component';
 import { CartComponent } from './features/basket/cart/cart.component';
+import { AlertComponent } from './features/account/alert/alert.component';
+import { RegistrationComponent } from './features/account/registration/registration.component';
 
 
 
@@ -31,7 +35,8 @@ import { CartComponent } from './features/basket/cart/cart.component';
     ListComponent,
     CardComponent,
     RegistrationComponent,
-    CartComponent
+    CartComponent,
+    AlertComponent
 
   ],
   imports: [
@@ -48,7 +53,13 @@ import { CartComponent } from './features/basket/cart/cart.component';
 )
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

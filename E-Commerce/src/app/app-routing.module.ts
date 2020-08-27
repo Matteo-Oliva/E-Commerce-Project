@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'list', component: ListComponent },
   { path: 'detail/:id', component: DetailComponent},
   { path: 'registration', component: RegistrationComponent},
-  { path: '**', component: ListComponent }
+  { path: '**',redirectTo: 'list' }
 
 ];
 
