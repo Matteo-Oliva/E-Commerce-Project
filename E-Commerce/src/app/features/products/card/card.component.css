@@ -7,8 +7,9 @@
 }
 
 .mat-card-image {
-  width: 200px;
-  height: 200px;
+  object-fit: cover;
+  width: auto;
+  height: 150px;
 }
   
  
