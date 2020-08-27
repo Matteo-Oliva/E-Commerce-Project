@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './features/products/detail/detail.component';
 import { RegistrationComponent } from './features/account/registration/registration.component';
 import { CartComponent } from './features/basket/cart/cart.component';
+import { HomeComponent } from './features/layout/home/home.component';
 
 
 
@@ -31,7 +32,8 @@ import { CartComponent } from './features/basket/cart/cart.component';
     ListComponent,
     CardComponent,
     RegistrationComponent,
-    CartComponent
+    CartComponent,
+    HomeComponent
 
   ],
   imports: [
