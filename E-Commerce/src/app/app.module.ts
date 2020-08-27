@@ -19,6 +19,7 @@ import { DetailComponent } from './features/products/detail/detail.component';
 import { RegistrationComponent } from './features/account/registration/registration.component';
 import { CartComponent } from './features/basket/cart/cart.component';
 import { HomeComponent } from './features/layout/home/home.component';
+import { SearchbarComponent } from './features/searchbar/searchbar/searchbar.component';
 
 
 
@@ -33,7 +34,8 @@ import { HomeComponent } from './features/layout/home/home.component';
     CardComponent,
     RegistrationComponent,
     CartComponent,
-    HomeComponent
+    HomeComponent,
+    SearchbarComponent
 
   ],
   imports: [

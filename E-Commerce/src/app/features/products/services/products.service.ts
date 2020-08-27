@@ -25,4 +25,11 @@ export class ProductsService {
     const url = `${this.productsUrl}/${id}`;
     return this.http.get<Product>(url);
   }
+
+  searchProduct(term: string): Observable<Product[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Product[]>(`${this.productsUrl}/?title=${term}`)
+  }
 }
