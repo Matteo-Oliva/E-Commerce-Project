@@ -24,7 +24,6 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    // tslint:disable-next-line: typedef
     login(username, password) {
         return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
             .pipe(map(user => {
@@ -35,7 +34,6 @@ export class AccountService {
             }));
     }
 
-    // tslint:disable-next-line: typedef
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('user');
@@ -43,22 +41,20 @@ export class AccountService {
         this.router.navigate(['/account/login']);
     }
 
-    // tslint:disable-next-line: typedef
+
     register(user: User) {
         return this.http.post(`${environment.apiUrl}/users/register`, user);
     }
 
-    // tslint:disable-next-line: typedef
     getAll() {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
     }
 
-    // tslint:disable-next-line: typedef
+
     getById(id: string) {
         return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
     }
 
-    // tslint:disable-next-line: typedef
     update(id, params) {
         return this.http.put(`${environment.apiUrl}/users/${id}`, params)
             .pipe(map(x => {
@@ -75,7 +71,6 @@ export class AccountService {
             }));
     }
 
-    // tslint:disable-next-line: typedef
     delete(id: string) {
         return this.http.delete(`${environment.apiUrl}/users/${id}`)
             .pipe(map(x => {
