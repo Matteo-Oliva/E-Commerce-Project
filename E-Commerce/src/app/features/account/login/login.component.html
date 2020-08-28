@@ -1,28 +1,30 @@
-<div class="card">
-  <h4 class="card-header">Login</h4>
-  <div class="card-body">
-      <form [formGroup]="form" (ngSubmit)="onSubmit() ">
-          <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                  <div *ngIf="f.username.errors.required">Username is required</div>
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                  <div *ngIf="f.password.errors.required">Password is required</div>
-              </div>
-          </div>
-          <div class="form-group">
-              <button [disabled]="loading" class="btn btn-primary">
-                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                  Login
-              </button>
-              <a routerLink="../register" class="btn btn-link">Register</a>
-          </div>
-      </form>
-  </div>
+<div id="login-container">
+  <h1>Login</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div fxLayout="column">
+            <!-- <mat-form-field class="form-element" fxFlex>
+                <mat-label for="username">Username</mat-label> -->
+                <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required matInput/>
+            <!-- </mat-form-field> -->
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        
+            <!-- <mat-form-field class="form-element" fxFlex>
+                <mat-label for="password">Password</mat-label> -->
+                <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required matInput/>    
+            <!-- </mat-form-field> -->
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+            
+            <div fxLayout="row" fxLayoutAlign="end end">
+                <button [disabled]="loading" class="btn-login" color="primary" mat-raised-button>
+                <span *ngIf="loading"></span>
+                    Login
+                </button>
+                <button routerLink="../register" color="accent" mat-raised-button>Register</button>
+            </div>
+        </div>
+    </form>
 </div>

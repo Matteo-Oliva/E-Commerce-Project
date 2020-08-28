@@ -1,9 +1,11 @@
+import { MaterialModule } from './../../../shared/libraries/material/material.module';
 import { AccountService } from './../services/account.service';
 import { AlertService } from './../services/alert.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/internal/operators/first';
+import { first } from 'rxjs/operators';
+
 
 
 @Component({
@@ -11,7 +13,6 @@ import { first } from 'rxjs/internal/operators/first';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
 
 export class LoginComponent implements OnInit {
   form: FormGroup;
