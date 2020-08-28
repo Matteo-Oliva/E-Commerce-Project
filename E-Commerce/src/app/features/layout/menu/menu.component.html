@@ -7,17 +7,17 @@
 
         <button mat-button [matMenuTriggerFor]="androidMenu">Android</button>
         <mat-menu #androidMenu="matMenu" yPosition="below">
-            <button mat-menu-item routerLink="">Cellulari</button>
-            <button mat-menu-item routerLink="">Laptop</button>
+            <button mat-menu-item routerLink="/list">Cellulari</button>
+            <button mat-menu-item routerLink="/laptop">Laptop</button>
         </mat-menu>
 
         <button mat-button class="login" [matMenuTriggerFor]="accedi">
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #accedi="matMenu" xPosition="after">
-            <button mat-menu-item class="login" routerLink='/account/login'>Login</button>
+            <button mat-menu-item class="login" routerLink='/account/login' *ngIf="!(isLogged$ | async); else logged">Login</button>
             <ng-template #logged>
-                <button mat-menu-item>Logout</button>
+                <button mat-menu-item (click)="accountService.logout()">Logout</button>
             </ng-template>
             <button mat-menu-item routerLink="/account/register">Sign In</button>
         </mat-menu>

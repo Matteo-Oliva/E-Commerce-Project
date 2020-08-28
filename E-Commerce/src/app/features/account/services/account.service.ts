@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Subject, BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
@@ -11,6 +11,8 @@ import { User } from './../../../shared/model/user';
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
+    private logged = false;
+    private logged$: Subject<boolean> = new Subject<boolean>();
 
     constructor(
         private router: Router,
@@ -30,15 +32,37 @@ export class AccountService {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
                 this.userSubject.next(user);
+                this.logged$.next(true);
+                this.logged = true;
                 return user;
+
+
             }));
+
+
+
     }
+
+    public isLogged$(): Subject<boolean> {
+		return this.logged$;
+    }
+    public isLogged(): boolean {
+		return this.logged;
+	}
+
 
     logout() {
         // remove user from local storage and set current user to null
-        localStorage.removeItem('user');
-        this.userSubject.next(null);
-        this.router.navigate(['/account/login']);
+        if (this.logged$) {
+            this.logged$.next(false);
+            this.router.navigate(['/account/login']);
+            localStorage.removeItem('user');
+            this.userSubject.next(null);
+        } else {
+            console.warn(`User is already logged off`);
+        }
+        this.logged = false;
+
     }
 
 
@@ -81,4 +105,6 @@ export class AccountService {
                 return x;
             }));
     }
+
+
 }
