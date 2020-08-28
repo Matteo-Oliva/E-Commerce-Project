@@ -21,7 +21,6 @@ export class AlertComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router, private alertService: AlertService) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
       // subscribe to new alert notifications
       this.alertSubscription = this.alertService.onAlert(this.id)
@@ -53,14 +52,13 @@ export class AlertComponent implements OnInit, OnDestroy {
       });
   }
 
-  // tslint:disable-next-line: typedef
+
   ngOnDestroy() {
       // unsubscribe to avoid memory leaks
       this.alertSubscription.unsubscribe();
       this.routeSubscription.unsubscribe();
   }
 
-  // tslint:disable-next-line: typedef
   removeAlert(alert: Alert) {
       // check if already removed to prevent error on auto close
       if (!this.alerts.includes(alert)) { return; }
@@ -79,7 +77,7 @@ export class AlertComponent implements OnInit, OnDestroy {
       }
   }
 
-  // tslint:disable-next-line: typedef
+
   cssClass(alert: Alert) {
       if (!alert) { return; }
 

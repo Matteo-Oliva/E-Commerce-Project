@@ -22,6 +22,7 @@ import { MenuComponent } from './features/layout/menu/menu.component';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { FooterComponent } from './features/layout/footer/footer.component';
 import { HomeComponent } from './features/layout/home/home.component';
+import { SearchbarComponent } from './features/searchbar/searchbar/searchbar.component';
 
 
 
@@ -35,7 +36,9 @@ import { HomeComponent } from './features/layout/home/home.component';
     CardComponent,
     CartComponent,
     AlertComponent,
-    HomeComponent
+    HomeComponent,
+    SearchbarComponent
+
 
   ],
   imports: [

@@ -18,7 +18,6 @@ export class AppComponent {
       this.accountService.user.subscribe(x => this.user = x);
   }
 
-  // tslint:disable-next-line: typedef
   logout() {
       this.accountService.logout();
   }

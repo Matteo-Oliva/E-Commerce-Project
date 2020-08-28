@@ -36,10 +36,9 @@ export class RegistrationComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    // tslint:disable-next-line: typedef
     get f() { return this.form.controls; }
 
-    // tslint:disable-next-line: typedef
+
     onSubmit() {
         this.submitted = true;
 
