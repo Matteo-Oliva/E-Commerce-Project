@@ -15,26 +15,27 @@
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #accedi="matMenu" xPosition="after">
-            <button mat-menu-item class="login" routerLink='/account/login' *ngIf="!(isLogged$ | async); else logged">Login</button>
+            <button mat-menu-item class="login" routerLink='/account/login'
+                *ngIf="!(isLogged$ | async); else logged">Login</button>
             <ng-template #logged>
                 <button mat-menu-item (click)="accountService.logout()">Logout</button>
             </ng-template>
-            <button mat-menu-item routerLink="/account/register">Sign In</button>
+            <button mat-menu-item routerLink="/account/register" *ngIf="!(isLogged$ | async)">Sign In</button>
         </mat-menu>
 
         <button mat-button class="shopping" routerLink="/cart">
             <span class="material-icons">
                 shopping_cart
-                </span>
+            </span>
         </button>
 
     </div>
     <div fxShow="true" fxHide.gt-sm>
         <button mat-button href="#" (click)="sidenav.toggle()">
-            <mat-icon id="menu_open">menu_open</mat-icon>                
-        </button>              
+            <mat-icon id="menu_open">menu_open</mat-icon>
+        </button>
     </div>
-    
+
 </mat-toolbar>
 
 <mat-sidenav-container fxFlexFill>
@@ -52,10 +53,10 @@
                 <button mat-menu-item routerLink="">Laptop</button>
             </mat-menu>
 
-             <button mat-mat-button class="shopping" routerLink="/cart">
+            <button mat-mat-button class="shopping" routerLink="/cart">
                 <span class="material-icons">
                     shopping_cart
-                    </span>
+                </span>
             </button>
 
             <button mat-button class="login" [matMenuTriggerFor]="accedi">
