@@ -15,7 +15,7 @@
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #accedi="matMenu" xPosition="after">
-            <button mat-menu-item class="login" routerLink='/login' *ngIf="!(isLogged$ | async); else logged">Login</button>
+            <button mat-menu-item class="login" routerLink='/account/login' *ngIf="!(isLogged$ | async); else logged">Login</button>
             <ng-template #logged>
                 <button mat-menu-item (click)="accountService.logout()">Logout</button>
             </ng-template>

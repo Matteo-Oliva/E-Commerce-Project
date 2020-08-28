@@ -13,7 +13,6 @@ import { AccountService } from '../services/account.service';
   styleUrls: ['./registration.component.css']
 })
 
-
   
     export class RegistrationComponent implements OnInit {
       form: FormGroup;

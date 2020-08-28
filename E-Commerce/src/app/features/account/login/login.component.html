@@ -19,11 +19,12 @@
             </div>
             
             <div fxLayout="row" fxLayoutAlign="end end">
-                <button [disabled]="loading" class="btn-login" color="primary" mat-raised-button>
+                <button [disabled]="loading" class="btn" color="primary" mat-raised-button>
                 <span *ngIf="loading"></span>
                     Login
                 </button>
-                <button routerLink="../register" color="accent" mat-raised-button>Register</button>
+                <button color="warn" routerLink="/home" class="btn" mat-raised-button>Cancel</button>
+                <button routerLink="../register" color="accent" class="btn" mat-raised-button>Registration</button>
             </div>
         </div>
     </form>
