@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
         private alertService: AlertService
     ) { }
 
-    // tslint:disable-next-line: typedef
+
     ngOnInit() {
         this.form = this.formBuilder.group({
             firstName: ['', Validators.required],
