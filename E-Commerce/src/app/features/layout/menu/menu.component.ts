@@ -13,6 +13,4 @@ export class MenuComponent implements OnInit {
   control: FormControl = new FormControl('');
   ngOnInit(): void {
   }
-  
-
 }

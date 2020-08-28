@@ -2,7 +2,8 @@
 import { Product } from './../../../shared/model/product';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable} from 'rxjs';
+import { filter} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,5 @@ export class ProductsService {
     }
     return this.http.get<Product[]>(`${this.productsUrl}/?title=${term}`)
   }
+
 }
