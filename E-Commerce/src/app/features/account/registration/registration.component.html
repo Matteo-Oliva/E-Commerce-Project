@@ -1,72 +1,53 @@
 <div id="registration-container">
-  <h1>Registrazione</h1>
-  <form class="registration-form" [formGroup]="formRegistration">
+  <h1>Registration</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="registration-form">
+        <div>
+            <mat-form-field class="example-full-width">
+              <mat-label for="firstName">First Name</mat-label>
+              <input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" required matInput/>
+            </mat-form-field>
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+        </div>
 
-    <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>First name</mat-label>
-        <input type="text" formControlName="firstName" name="firstName" placeholder="firstName" matInput required>
-      </mat-form-field>
-    </div>
+        <div>
+            <mat-form-field class="example-full-width">
+              <mat-label for="lastName">Last Name</mat-label>
+              <input type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required matInput/>
+            </mat-form-field>
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+        </div>
 
-    <div>  
-      <mat-form-field class="example-full-width">
-        <mat-label>Last Name</mat-label>
-        <input type="text" formControlName="lastName" name="lastName" placeholder="lastName" matInput required>
-      </mat-form-field>
-    </div>
+        <div>
+            <mat-form-field class="example-full-width">
+              <mat-label for="username">Username</mat-label>
+              <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required matInput/>
+            </mat-form-field>
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        </div>
 
-    <div>  
-      <mat-form-field class="example-full-width">
-        <mat-label>Username</mat-label>
-        <input type="text" formControlName="username" name="username" placeholder="username" matInput required>
-      </mat-form-field>
-    </div>
+        <div>
+            <mat-form-field class="example-full-width">
+              <mat-label for="password">Password</mat-label>
+              <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required matInput/>
+            </mat-form-field>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+        </div>
 
-    <div>  
-      <mat-form-field class="example-full-width">
-        <mat-label>Password</mat-label>
-        <input type="password" formControlName="password" name="password" placeholder="password" matInput minlength required>
-      </mat-form-field>
-    </div>
-  
-    <p>
-      <mat-form-field class="example-full-width">
-        <mat-label>Address</mat-label>
-        <textarea formControlName="address" name="address" placeholder="Ex. 100 Main St" matInput required>1600 Amphitheatre Pkwy</textarea>
-      </mat-form-field>
-    </p>
-
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-          <mat-label>City</mat-label>
-          <input matInput type="text" placeholder="Ex. San Francisco" required>
-          </mat-form-field>
-        </td>
-
-        <td>
-          <mat-form-field class="example-full-width">
-          <mat-label>State</mat-label>
-          <input matInput type="text" placeholder="Ex. California" required>
-          </mat-form-field>
-        </td>
-
-        <td>
-          <mat-form-field class="example-full-width">
-          <mat-label>Postal Code</mat-label>
-          <input matInput type="number" #postalCode maxlength="5" placeholder="Ex. 94105" required>
-          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-          </mat-form-field>
-        </td>
-
-      </tr>
-    </table>
-    
-    <div fxLayout="row">
-      <button color="primary" class="btn-registration" mat-raised-button>Registrati</button>
-      <button color="warn" mat-raised-button>Cancel</button>
-    </div>
-  </form>
+        <div fxLayout="row">
+            <button [disabled]="loading" class="btn-registration" color="primary" mat-raised-button>
+                <span *ngIf="loading"></span>
+                Register
+            </button>
+            <button routerLink="../login" color="warn" mat-raised-button>Cancel</button>
+        </div>
+    </form>
 </div>
