@@ -21,6 +21,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './features/layout/menu/menu.component';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { FooterComponent } from './features/layout/footer/footer.component';
+import { HomeComponent } from './features/layout/home/home.component';
+
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { FooterComponent } from './features/layout/footer/footer.component';
     ListComponent,
     CardComponent,
     CartComponent,
-    AlertComponent
+    AlertComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,

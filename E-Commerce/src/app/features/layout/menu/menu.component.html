@@ -3,7 +3,7 @@
 
     <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm></button>
     <div fxShow="true" fxHide.lt-md>
-        <button mat-button>Home</button>
+        <button routerLink='/home' mat-button>Home</button>
 
         <button mat-button [matMenuTriggerFor]="androidMenu">Android</button>
         <mat-menu #androidMenu="matMenu" yPosition="below">
