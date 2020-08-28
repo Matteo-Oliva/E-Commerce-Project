@@ -1,3 +1,4 @@
+import { HomeComponent } from './features/layout/home/home.component';
 import { CartComponent } from './features/basket/cart/cart.component';
 import { DetailComponent } from './features/products/detail/detail.component';
 import { ListComponent } from './features/products/list/list.component';
@@ -9,8 +10,8 @@ import { RegistrationComponent } from './features/account/registration/registrat
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/list', pathMatch: 'full' },
-
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:'home',component:HomeComponent},
   {path:'cart',component:CartComponent},
   { path: 'login', component: LoginComponent },
   { path: 'list', component: ListComponent },

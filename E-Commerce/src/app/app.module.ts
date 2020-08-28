@@ -22,6 +22,9 @@ import { DetailComponent } from './features/products/detail/detail.component';
 import { CartComponent } from './features/basket/cart/cart.component';
 import { AlertComponent } from './features/account/alert/alert.component';
 import { RegistrationComponent } from './features/account/registration/registration.component';
+import { HomeComponent } from './features/layout/home/home.component';
+import { SearchbarComponent } from './features/searchbar/searchbar/searchbar.component';
+
 
 
 
@@ -36,7 +39,10 @@ import { RegistrationComponent } from './features/account/registration/registrat
     CardComponent,
     RegistrationComponent,
     CartComponent,
-    AlertComponent
+    AlertComponent,
+    HomeComponent,
+    SearchbarComponent
+
 
   ],
   imports: [
