@@ -23,11 +23,14 @@ export class SearchbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products$ = this.searchTerms.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap((term: string) => this.productService.searchProduct(term)),
-    );
+    this.getResult();
   }
 
+  getResult():void{
+  this.products$ = this.searchTerms.pipe(
+    debounceTime(300),
+    distinctUntilChanged(),
+    switchMap((term: string) => this.productService.searchProduct(term)),
+  );
+}
 }

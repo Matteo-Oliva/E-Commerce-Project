@@ -23,9 +23,10 @@ product: Product;
   getProduct():void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productsService.getProduct(id)
-    .subscribe(product => this.product = product)
- }
- addToCart(product){
+    .subscribe(product => this.product = product) 
+  }
+ 
+  addToCart(product){
   this.cartService.addToCart(product);
   window.alert('Your product has been added to the cart!');
   this.router.navigate( ['/cart'] );
