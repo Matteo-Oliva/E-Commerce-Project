@@ -4,7 +4,12 @@
     background-position: center center;
     height: 100%;
     opacity:0.93;
+    overflow: hidden;
   } 
+
+  .body{
+    overflow: hidden;
+  }
 
 .title{
     padding-top: 5%;
