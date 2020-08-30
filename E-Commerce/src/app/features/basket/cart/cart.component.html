@@ -1,4 +1,15 @@
  
 <h1>Carrello</h1>
+<h2>Total: {{total() | currency:'EUR':'€'}}</h2>
+<button fxLayoutAlign="end" mat-button (click)="clearCart()">Svuota carrello</button>
 
-<app-card *ngFor="let product of products" [product]="product"></app-card>
+
+ <mat-card class="cart-item" *ngFor="let item of items">
+        <mat-card-title>{{ item.title }}</mat-card-title>
+        <mat-card-subtitle><h2>{{ item.price | currency }}</h2></mat-card-subtitle>
+        <img class="img-card" mat-card-image src="{{ item.imgPath }} ">Quantità
+        <button (click)="remove()" class="remove">Remove</button>
+        <button (click)="add()">+</button>
+        <p>{{ itemQuantity }} </p>
+ </mat-card>
+
