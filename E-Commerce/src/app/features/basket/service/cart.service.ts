@@ -7,15 +7,13 @@ export class CartService {
   items = [];
 
   constructor() { }
- 
- /*  itemProduct = JSON.parse(localStorage.getItem('itemProduct',this.items)) || []; */
 
   addToCart(product) {
     this.items.push(product);
   }
 
-  getItems() { 
-  return this.items;
+  getItems() {
+    return this.items;
   }
 
   clearCart() {
@@ -23,6 +21,6 @@ export class CartService {
     return this.items;
   }
 
- 
-  
+
+
 }

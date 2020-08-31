@@ -9,6 +9,7 @@ import { User } from './../../../shared/model/user';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
+
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
     private logged = false;
@@ -35,36 +36,28 @@ export class AccountService {
                 this.logged$.next(true);
                 this.logged = true;
                 return user;
-
-
             }));
-
-
-
     }
 
     public isLogged$(): Subject<boolean> {
-		return this.logged$;
+        return this.logged$;
     }
     public isLogged(): boolean {
-		return this.logged;
-	}
-
+        return this.logged;
+    }
 
     logout() {
         // remove user from local storage and set current user to null
         if (this.logged$) {
             this.logged$.next(false);
-            this.router.navigate(['/account/login']);
             localStorage.removeItem('user');
             this.userSubject.next(null);
+            this.router.navigate(['/account/login']);
         } else {
             console.warn(`User is already logged off`);
         }
         this.logged = false;
-
     }
-
 
     register(user: User) {
         return this.http.post(`${environment.apiUrl}/users/register`, user);
@@ -73,7 +66,6 @@ export class AccountService {
     getAll() {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
     }
-
 
     getById(id: string) {
         return this.http.get<User>(`${environment.apiUrl}/users/${id}`);

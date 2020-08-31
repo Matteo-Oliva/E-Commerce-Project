@@ -4,7 +4,7 @@
         <div fxLayout="column">
             <mat-form-field class="form-element" fxFlex>
                 <mat-label for="username">Username</mat-label>
-                <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required matInput/>
+                <input type="text" formControlName="username" required matInput/>
             </mat-form-field>
             <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                 <div *ngIf="f.username.errors.required">Username is required</div>
@@ -12,15 +12,14 @@
         
             <mat-form-field class="form-element" fxFlex>
                 <mat-label for="password">Password</mat-label>
-                <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required matInput/>    
+                <input type="password" formControlName="password" required matInput/>    
             </mat-form-field>
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.errors.required">Password is required</div>
             </div>
             
             <div fxLayout="row" fxLayoutAlign="end end">
-                <button [disabled]="loading" class="btn" color="primary" mat-raised-button>
-                <span *ngIf="loading"></span>
+                <button class="btn" color="primary" mat-raised-button>           
                     Login
                 </button>
                 <button color="warn" routerLink="/home" class="btn" mat-raised-button>Cancel</button>

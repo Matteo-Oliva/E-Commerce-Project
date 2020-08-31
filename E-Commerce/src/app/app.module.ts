@@ -11,20 +11,15 @@ import { fakeBackendProvider } from './shared/helpers/fake-backend';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
 import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 import { MaterialModule } from './shared/libraries/material/material.module';
-
 import { CardComponent} from './features/products/card/card.component';
 import { ListComponent } from './features/products/list/list.component';
 import { DetailComponent } from './features/products/detail/detail.component';
 import { CartComponent } from './features/basket/cart/cart.component';
-import { AlertComponent } from './features/account/alert/alert.component';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './features/layout/menu/menu.component';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { FooterComponent } from './features/layout/footer/footer.component';
 import { HomeComponent } from './features/layout/home/home.component';
-import { SearchbarComponent } from './features/searchbar/searchbar/searchbar.component';
-
-
 
 @NgModule({
   declarations: [
@@ -35,10 +30,8 @@ import { SearchbarComponent } from './features/searchbar/searchbar/searchbar.com
     ListComponent,
     CardComponent,
     CartComponent,
-    AlertComponent,
-    HomeComponent,
-    SearchbarComponent
-
+    HomeComponent
+    
 
   ],
   imports: [

@@ -1,25 +1,25 @@
-<div *ngIf="product" fxLayout="row" fxLayoutGap="50px"> 
-<div>
-<img class="image" [src]="product.imgPath" alt="{{product.description}}">
-</div>
-<div>
-    <h1>{{product.title | uppercase}}</h1>
-    <hr>
-    <h3>{{product.price | currency: 'EUR': true}}</h3>
-    <h3>Spedizione gratuita</h3>
-    <h4>{{product.description}}</h4>
-</div>
-<div>
-   <mat-card>
-       <mat-card-subtitle>
-        <h2>{{product.price| currency: 'EUR': true}}</h2>
-       </mat-card-subtitle>
-       <mat-card-content>
-           <h3>Spedizione Gratuita</h3>
-       </mat-card-content>
-       <mat-card-actions>
-           <button (click)="addToCart(product)" routerLink="">Aggiungi al Carrello</button>
-       </mat-card-actions>
-   </mat-card>
-</div>
+<div *ngIf="product" fxLayout="row" fxLayoutGap="50px">
+    <div>
+        <img class="image" [src]="product.imgPath" alt="{{product.description}}">
+    </div>
+    <div>
+        <h1>{{product.title | uppercase}}</h1>
+        <hr>
+        <h3>{{product.price | currency: 'EUR': true}}</h3>
+        <h3>Spedizione gratuita</h3>
+        <h4>{{product.description}}</h4>
+    </div>
+    <div>
+        <mat-card>
+            <mat-card-subtitle>
+                <h2>{{product.price| currency: 'EUR': true}}</h2>
+            </mat-card-subtitle>
+            <mat-card-content>
+                <h3>Spedizione Gratuita</h3>
+            </mat-card-content>
+            <mat-card-actions>
+                <button (click)="addToCart(product)" routerLink="">Aggiungi al Carrello</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>

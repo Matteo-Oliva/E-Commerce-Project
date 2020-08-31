@@ -9,12 +9,12 @@ import { Product } from 'src/app/shared/model/product';
 })
 export class HomeComponent implements OnInit {
 
-  product:Product;
+  product: Product;
 
-  constructor(private productService:ProductsService) { }
+  constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
   }
 
- 
+
 }

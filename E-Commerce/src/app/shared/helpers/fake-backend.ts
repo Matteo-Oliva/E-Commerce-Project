@@ -50,7 +50,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             });
         }
 
-
         function register() {
             const user = body;
 

@@ -7,12 +7,8 @@
             </button>
             <button mat-button routerLink="/home">Home</button>
 
-            <!-- <button mat-button [matMenuTriggerFor]="androidMenu">Android</button>
-            <mat-menu #androidMenu="matMenu" yPosition="below">
-                <button mat-menu-item routerLink="/list">Cellulari</button>
-                <button mat-menu-item routerLink="">Laptop</button>
-            </mat-menu> -->
             <button mat-button routerLink="/list">Prodotti</button>
+
             <button mat-button class="shopping" routerLink="/cart">
                 <span class="material-icons">
                     shopping_cart
@@ -24,29 +20,30 @@
                     account_circle
                 </span>
             </button>
+
             <mat-menu #accedi="matMenu" xPosition="after">
-                <button mat-menu-item class="login" routerLink="/account/login" *ngIf="!(isLogged$ | async); else logged">Login</button>
+                <button mat-menu-item class="login" routerLink="/account/login"
+                    *ngIf="!(isLogged$ | async); else logged">Login</button>
                 <ng-template #logged>
                     <button mat-menu-item (click)="accountService.logout()">Logout</button>
                 </ng-template>
 
                 <button mat-menu-item routerLink="/account/register" *ngIf="!(isLogged$ | async)">Sign In</button>
             </mat-menu>
-
         </div>
     </mat-sidenav>
 
     <mat-sidenav-content>
-
         <mat-toolbar>
             <img src="assets/image/logo.png" width="160" height="58" />
-        
+
             <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm></button>
+
             <div fxShow="true" fxHide.lt-md>
                 <button routerLink='/home' mat-button>Home</button>
-        
+
                 <button mat-button routerLink="/list">Prodotti</button>
-        
+
                 <button mat-button class="login" [matMenuTriggerFor]="accedi">
                     <mat-icon>account_circle</mat-icon>
                 </button>
@@ -58,27 +55,24 @@
                     </ng-template>
                     <button mat-menu-item routerLink="/account/register" *ngIf="!(isLogged$ | async)">Sign In</button>
                 </mat-menu>
-        
+
                 <button mat-button class="shopping" routerLink="/cart">
                     <span class="material-icons">
                         shopping_cart
                     </span>
                 </button>
-        
-        
-                
+
             </div>
             <div fxShow="true" fxHide.gt-sm>
                 <button mat-button href="#" (click)="sidenav.toggle()">
                     <mat-icon id="menu_open">menu_open</mat-icon>
                 </button>
             </div>
-        
         </mat-toolbar>
 
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
 
     </mat-sidenav-content>
 
-<mat-sidenav-container>
+    <mat-sidenav-container>

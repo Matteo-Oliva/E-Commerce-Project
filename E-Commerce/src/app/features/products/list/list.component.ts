@@ -1,6 +1,6 @@
 import { ProductStatus } from './../../../shared/model/filter.enum';
 import { Product } from 'src/app/shared/model/product';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './../services/products.service';
 import { of, Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
@@ -21,7 +21,6 @@ export class ListComponent implements OnInit {
   products$: Observable<Product[]>;
   private searchTerms = new Subject<string>();
   private route: ActivatedRoute;
-
 
   constructor(private productService: ProductsService) { }
 

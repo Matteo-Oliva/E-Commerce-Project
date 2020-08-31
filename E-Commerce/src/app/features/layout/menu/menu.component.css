@@ -7,13 +7,11 @@
     z-index: 1;
     backdrop-filter: saturate(180%) blur(20px);
     font-family: "Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    
-    }
+}
 
-    .menu{
+.menu{
         overflow: hidden;
-    }
-
+}
 
 .mat-menu-item {
     font-family: "Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
@@ -27,10 +25,8 @@
     
 }
 .shopping {
-    
     background-color: Transparent;
-    /* background-repeat:no-repeat; */
     border: none;
-     cursor:pointer; 
+    cursor:pointer; 
     overflow: hidden;
 }

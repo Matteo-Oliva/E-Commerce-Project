@@ -1,5 +1,5 @@
 export enum ProductStatus{
-    "ALL" = "Tutti",
-    "CELL" = "Cellulari",
-    "LAPTOP" = "Laptop"
+    ALL = 'Tutti',
+    CELL = 'Cellulari',
+    LAPTOP = 'Laptop'
 }

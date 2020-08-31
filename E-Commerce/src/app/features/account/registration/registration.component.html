@@ -4,7 +4,7 @@
         <div>
             <mat-form-field class="example-full-width">
               <mat-label for="firstName">First Name</mat-label>
-              <input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" required matInput/>
+              <input type="text" formControlName="firstName" required matInput/>
             </mat-form-field>
             <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
@@ -14,7 +14,7 @@
         <div>
             <mat-form-field class="example-full-width">
               <mat-label for="lastName">Last Name</mat-label>
-              <input type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required matInput/>
+              <input type="text" formControlName="lastName" required matInput/>
             </mat-form-field>
             <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                 <div *ngIf="f.lastName.errors.required">Last Name is required</div>
@@ -24,7 +24,7 @@
         <div>
             <mat-form-field class="example-full-width">
               <mat-label for="username">Username</mat-label>
-              <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required matInput/>
+              <input type="text" formControlName="username" required matInput/>
             </mat-form-field>
             <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                 <div *ngIf="f.username.errors.required">Username is required</div>
@@ -34,7 +34,7 @@
         <div>
             <mat-form-field class="example-full-width">
               <mat-label for="password">Password</mat-label>
-              <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required matInput/>
+              <input type="password" formControlName="password" required matInput/>
             </mat-form-field>
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.errors.required">Password is required</div>
@@ -43,8 +43,8 @@
         </div>
 
         <div fxLayout="row">
-            <button [disabled]="loading" class="btn-registration" color="primary" mat-raised-button>
-                <span *ngIf="loading"></span>
+            <button  class="btn-registration" color="primary" mat-raised-button>
+                <span ></span>
                 Register
             </button>
             <button routerLink="../login" color="warn" mat-raised-button>Cancel</button>

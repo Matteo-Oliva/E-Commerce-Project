@@ -7,8 +7,6 @@ import { AccountRoutingModule } from './account-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 
-
-
 @NgModule({
     imports: [
       CommonModule,
