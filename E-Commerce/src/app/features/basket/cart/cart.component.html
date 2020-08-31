@@ -4,11 +4,11 @@
 <button fxLayoutAlign="end" mat-button (click)="clearCart()">Svuota carrello</button>
 
 
- <mat-card class="cart-item" *ngFor="let item of items">
+ <mat-card class="cart-item" *ngFor="let item of items; let i = index">
         <mat-card-title>{{ item.title }}</mat-card-title>
         <mat-card-subtitle><h2>{{ item.price | currency }}</h2></mat-card-subtitle>
         <img class="img-card" mat-card-image src="{{ item.imgPath }} ">Quantità
-        <button (click)="remove()" class="remove">Remove</button>
+        <button (click)="items.splice(i, 1)" class="remove">Remove</button>
         <button (click)="add()">+</button>
         <p>{{ itemQuantity }} </p>
  </mat-card>

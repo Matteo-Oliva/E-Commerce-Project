@@ -23,10 +23,6 @@ export class CartComponent implements OnInit {
   
   }
 
-  addToCart(product): void {
-    this.products.push(product);
-  }
-
   clearCart() {
     this.items = [];
     return this.items;
@@ -50,20 +46,10 @@ total() {
   return this.items.reduce((total, item) => total + item.price, 0);
 }
 
-remove(product) {
-  this.items.splice(product,1);
-}
-
-
 addQuantity(){
 
     this.itemQuantity++;
 }
-
-
-
-
-
 
 }
 
