@@ -22,11 +22,14 @@
 }
 
 .icon {
+    display: flex;
     margin-top: 10%;
-    height:150px;
+    height:25%px;
     width: 100%;
     background-color: white;
     padding-top:15px;
+    flex-direction: row;
+    
 }
 
 .icon-size{

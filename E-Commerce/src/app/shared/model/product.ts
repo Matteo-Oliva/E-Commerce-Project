@@ -7,4 +7,5 @@ export interface Product {
     price: number;
     review: number;
     brand:string;
+    status:boolean;
 }
