@@ -8,6 +8,6 @@
               <h2>{{ item.price | currency }}</h2>
        </mat-card-subtitle>
        <img class="img-card" mat-card-image src="{{ item.imgPath }} ">Quantità
-       <button (click)="items.splice(i, 1)" class="remove">Remove</button>
+       <button (click)="onRemoveProduct(item)" class="remove">Remove</button>
 
 </mat-card>

@@ -20,7 +20,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
 
         function handleRoute() {
-            switch (true) {
+            switch (true) {  //Sintassi Orribile if /elsi if/else
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
                 case url.endsWith('/users/register') && method === 'POST':
