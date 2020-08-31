@@ -28,7 +28,7 @@ export class SearchbarComponent implements OnInit {
 
   getResult():void{
   this.products$ = this.searchTerms.pipe(
-    debounceTime(300),
+    debounceTime(100),
     distinctUntilChanged(),
     switchMap((term: string) => this.productService.searchProduct(term)),
   );

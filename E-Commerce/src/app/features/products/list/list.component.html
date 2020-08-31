@@ -1,6 +1,9 @@
-<div fxLayout="row wrap" fxLayoutAlign="space-around start">
+<app-searchbar></app-searchbar> 
+<div class="container" fxLayout="row wrap" fxLayoutAlign="space-around start" >
 
-    <app-card *ngFor="let product of products " [product]="product" routerLink="/detail/{{product.id}}"></app-card>
+    <app-card   *ngFor="let product of products " [product]="product" routerLink="/detail/{{product.id}}" >
+        
+    </app-card>
 
     
 
