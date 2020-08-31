@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
     form: FormGroup;
     submitted = false;
     returnUrl: string;
-   
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -21,7 +20,7 @@ export class LoginComponent implements OnInit {
         private accountService: AccountService,
     ) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.form = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
@@ -31,15 +30,14 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     }
 
-    get f() { return this.form.controls; }
+    get f(): any { return this.form.controls; }
 
-
-    onSubmit() {
+    onSubmit(): void {
         this.submitted = true;
         if (this.form.invalid) {
             return;
         }
-        
+
         this.accountService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(

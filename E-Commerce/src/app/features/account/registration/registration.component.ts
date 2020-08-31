@@ -23,7 +23,7 @@ export class RegistrationComponent implements OnInit {
 
     ) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.form = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
@@ -32,10 +32,10 @@ export class RegistrationComponent implements OnInit {
         });
     }
 
-    get f() { return this.form.controls; }
+    get f(): any { return this.form.controls; }
 
 
-    onSubmit() {
+    onSubmit(): void {
         this.submitted = true;
 
         if (this.form.invalid) {

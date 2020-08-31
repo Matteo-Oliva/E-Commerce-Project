@@ -114,7 +114,7 @@ import { MatTreeModule } from '@angular/material/tree';
 		MatToolbarModule,
 		MatTooltipModule,
 		MatTreeModule
-	]
+]
 } )
 export class MaterialModule {
 }

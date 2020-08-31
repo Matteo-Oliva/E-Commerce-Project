@@ -12,7 +12,7 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productsUrl)
+    return this.http.get<Product[]>(this.productsUrl);
   }
 
   getProduct(id: number): Observable<Product> {
@@ -24,8 +24,7 @@ export class ProductsService {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<Product[]>(`${this.productsUrl}/?title=${term}`)
+    return this.http.get<Product[]>(`${this.productsUrl}/?title=${term}`);
   }
-
 
 }

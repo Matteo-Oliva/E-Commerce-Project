@@ -8,19 +8,16 @@ export class CartService {
 
   constructor() { }
 
-  addToCart(product) {
+  addToCart(product: any): void {
     this.items.push(product);
   }
 
-  getItems() {
+  getItems(): any[] {
     return this.items;
   }
 
-  clearCart() {
+  clearCart(): any[] {
     this.items = [];
     return this.items;
   }
-
-
-
 }

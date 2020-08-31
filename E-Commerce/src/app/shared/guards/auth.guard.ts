@@ -16,16 +16,13 @@ export class AuthGuard implements CanActivate {
         state: RouterStateSnapshot ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         return this.checkIfAuthenticated();
       }
-    
+
       private checkIfAuthenticated(): boolean | UrlTree {
         if ( this.accountService.isLogged() ) {
           return true;
         }
         alert('You must be logged');
         return this.router.parseUrl( '/account/login' );
-        
       }
-
-    
-   
 }
+

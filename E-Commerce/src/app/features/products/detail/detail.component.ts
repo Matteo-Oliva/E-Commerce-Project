@@ -13,8 +13,12 @@ export class DetailComponent implements OnInit {
 
   product: Product;
 
-  constructor(private productsService: ProductsService,
-    private route: ActivatedRoute, private cartService: CartService, private router: Router) { }
+  constructor(
+    private productsService: ProductsService,
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -23,10 +27,10 @@ export class DetailComponent implements OnInit {
   getProduct(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productsService.getProduct(id)
-      .subscribe(product => this.product = product)
+      .subscribe(product => this.product = product);
   }
 
-  addToCart(product) {
+  addToCart(product: Product): void {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
     this.router.navigate(['/cart']);

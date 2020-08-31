@@ -9,9 +9,7 @@ import { CartService } from '../service/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  products: Product[];
-  items;
-  
+  items: Product[];
 
   constructor(private cartService: CartService) { }
 
@@ -19,15 +17,14 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getItems();
   }
 
-  clearCart() {
+  clearCart(): void {
     this.cartService.clearCart();
   }
 
-  total() {
-    return this.items.reduce((total, item) => total + item.price, 0);
+  total(): void {
+    return this.items.reduce(( total: any, item: any ) => {
+      return total + item.price;
+    }, 0);
   }
- 
 
 }
-
-

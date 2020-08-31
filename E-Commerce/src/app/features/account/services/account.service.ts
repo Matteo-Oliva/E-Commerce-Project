@@ -27,7 +27,7 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username, password) {
+    login(username, password): Observable<User> {
         return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -46,7 +46,7 @@ export class AccountService {
         return this.logged;
     }
 
-    logout() {
+    logout(): void {
         // remove user from local storage and set current user to null
         if (this.logged$) {
             this.logged$.next(false);
@@ -59,19 +59,19 @@ export class AccountService {
         this.logged = false;
     }
 
-    register(user: User) {
+    register(user: User): any {
         return this.http.post(`${environment.apiUrl}/users/register`, user);
     }
 
-    getAll() {
+    getAll(): Observable<User[]> {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
     }
 
-    getById(id: string) {
+    getById(id: string): Observable<User> {
         return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
     }
 
-    update(id, params) {
+    update(id, params): any{
         return this.http.put(`${environment.apiUrl}/users/${id}`, params)
             .pipe(map(x => {
                 // update stored user if the logged in user updated their own record
@@ -87,7 +87,7 @@ export class AccountService {
             }));
     }
 
-    delete(id: string) {
+    delete(id: string): any {
         return this.http.delete(`${environment.apiUrl}/users/${id}`)
             .pipe(map(x => {
                 // auto logout if the logged in user deleted their own record

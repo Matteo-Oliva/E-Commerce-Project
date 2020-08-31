@@ -25,18 +25,20 @@ export class ListComponent implements OnInit {
   constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(data => { this.manageproducts(data) });
+    this.productService.getProducts().subscribe(data => { this.manageproducts(data); });
     this.getResult();
   }
 
-  manageproducts(data) {
+  manageproducts(data): void {
     this.products = data;
     this.originalproducts = data;
   }
 
-  filterData(product: Product) {
-    let bSearchInput = this.searchModel ? product.title.toLowerCase().includes(this.searchModel.toLowerCase()) || product.description.toLowerCase().includes(this.searchModel.toLowerCase()) : true;
-    let bStatus = this.statusModel && this.statusModel === 'CELL' ? product.status === true : this.statusModel && this.statusModel === 'LAPTOP' ? product.status === false : true;
+  filterData(product: Product): boolean {
+    const bSearchInput = this.searchModel ? product.title.toLowerCase()
+        .includes(this.searchModel.toLowerCase()) || product.description.toLowerCase()
+        .includes(this.searchModel.toLowerCase()) : true;
+    const bStatus = this.statusModel && this.statusModel === 'CELL' ? product.status === true : this.statusModel && this.statusModel === 'LAPTOP' ? product.status === false : true;
 
     return bSearchInput && bStatus;
   }
@@ -48,13 +50,13 @@ export class ListComponent implements OnInit {
       )
       .subscribe(searchTerm => {
         this.searchModel = searchTerm;
-        this.products = this.originalproducts.filter(product => { return this.filterData(product) });
+        this.products = this.originalproducts.filter(product => this.filterData(product));
       });
   }
 
   onStatusChanged(event: any): void {
     this.statusModel = event.value && event.value === 'ALL' ? null : event.value;
-    this.products = this.originalproducts.filter(product => { return this.filterData(product) })
+    this.products = this.originalproducts.filter(product => this.filterData(product));
   }
 
   search(term: string): void {
