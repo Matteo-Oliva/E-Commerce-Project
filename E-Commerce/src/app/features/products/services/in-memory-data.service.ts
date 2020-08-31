@@ -1,12 +1,13 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
+import { Product } from 'src/app/shared/model/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InMemoryDataService implements InMemoryDbService {
 
-  createDb() {
+  createDb(): any {
     const products = [
 
       { id: 1, category: 'Smartphone', title: 'Xiaomi Redmi 9', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61Wt%2B%2BW1WpL._AC_SL1000_.jpg', description: 'Più potenza per il tuo divertimento. Prestazioni potenti e stabili, multitasking fluido, esperienza audiovisiva e di gioco senza interruzioni.', price: 126, review: 4, brand: 'Xiaomi', status: true },
@@ -21,7 +22,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
       { id: 6, category: 'Laptop', title: 'Nuovo Apple MacBook Air', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/71h5tyZqkhL._AC_SL1500_.jpg', description: 'Con MacBook Pro, il notebook raggiunge livelli mai visti di potenza, leggerezza e praticità.', price: 2143.90, review: 5, brand: 'Apple', status: false },
 
-      { id: 7, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: "Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l'ha fatto", price: 555, review: 3, brand: 'HP', status: false },
+      { id: 7, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: 'Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l\'ha fatto', price: 555, review: 3, brand: 'HP', status: false },
 
       { id: 8, category: 'Laptop', title: 'HUAWEI MateBook D', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61NCF56lnfL._AC_SL1000_.jpg', description: 'Con una potente architettura di sistema e capacità di software, il laptop offre lo schermo più grande e il peso più leggero possibile', price: 599, review: 4, brand: 'Huawei', status: false },
 
@@ -41,7 +42,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
       { id: 16, category: 'Laptop', title: 'Nuovo Apple MacBook Air', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/71h5tyZqkhL._AC_SL1500_.jpg', description: 'Con MacBook Pro, il notebook raggiunge livelli mai visti di potenza, leggerezza e praticità.', price: 2143.90, review: 5, brand: 'Apple', status: false },
 
-      { id: 17, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: "Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l'ha fatto", price: 555, review: 3, brand: 'HP', status: false },
+      { id: 17, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: 'Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l\'ha fatto', price: 555, review: 3, brand: 'HP', status: false },
 
       { id: 18, category: 'Laptop', title: 'HUAWEI MateBook D', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61NCF56lnfL._AC_SL1000_.jpg', description: 'Con una potente architettura di sistema e capacità di software, il laptop offre lo schermo più grande e il peso più leggero possibile', price: 599, review: 4, brand: 'Huawei', status: false },
 
@@ -61,7 +62,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
       { id: 26, category: 'Laptop', title: 'Nuovo Apple MacBook Air', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/71h5tyZqkhL._AC_SL1500_.jpg', description: 'Con MacBook Pro, il notebook raggiunge livelli mai visti di potenza, leggerezza e praticità.', price: 2143.90, review: 5, brand: 'Apple', status: false },
 
-      { id: 27, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: "Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l'ha fatto", price: 555, review: 3, brand: 'HP', status: false },
+      { id: 27, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: 'Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l\'ha fatto', price: 555, review: 3, brand: 'HP', status: false },
 
       { id: 28, category: 'Laptop', title: 'HUAWEI MateBook D', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61NCF56lnfL._AC_SL1000_.jpg', description: 'Con una potente architettura di sistema e capacità di software, il laptop offre lo schermo più grande e il peso più leggero possibile', price: 599, review: 4, brand: 'Huawei', status: false },
 
@@ -81,7 +82,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
       { id: 36, category: 'Laptop', title: 'Nuovo Apple MacBook Air', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/71h5tyZqkhL._AC_SL1500_.jpg', description: 'Con MacBook Pro, il notebook raggiunge livelli mai visti di potenza, leggerezza e praticità.', price: 2143.90, review: 5, brand: 'Apple', status: false },
 
-      { id: 37, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: "Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l'ha fatto", price: 555, review: 3, brand: 'HP', status: false },
+      { id: 37, category: 'Laptop', title: 'HP Elitebook 840 G2', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61j1sfm5F3L._AC_SL1126_.jpg', description: 'Non è sempre facile trovare il compromesso perfetto tra tradizione e innovazione - ma HP l\'ha fatto', price: 555, review: 3, brand: 'HP', status: false },
 
       { id: 38, category: 'Laptop', title: 'HUAWEI MateBook D', imgPath: 'https://images-na.ssl-images-amazon.com/images/I/61NCF56lnfL._AC_SL1000_.jpg', description: 'Con una potente architettura di sistema e capacità di software, il laptop offre lo schermo più grande e il peso più leggero possibile', price: 599, review: 4, brand: 'Huawei', status: false },
 

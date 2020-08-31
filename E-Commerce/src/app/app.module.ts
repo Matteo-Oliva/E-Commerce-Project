@@ -31,9 +31,8 @@ import { HomeComponent } from './features/layout/home/home.component';
     CardComponent,
     CartComponent,
     HomeComponent
-    
-
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,8 +44,7 @@ import { HomeComponent } from './features/layout/home/home.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-)
-
+    )
   ],
   providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

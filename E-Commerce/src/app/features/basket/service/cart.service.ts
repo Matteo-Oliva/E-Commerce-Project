@@ -1,5 +1,3 @@
-import { Product } from 'src/app/shared/model/product';
-import { filter } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -27,8 +25,7 @@ export class CartService {
     return this.manageUserCart(product, true, false);
   }
 
-  manageUserCart(product, isRemove, getItems) {
-    
+  manageUserCart(product, isRemove, getItems) {    
     let userLogged = JSON.parse(localStorage.getItem('user'));
     let users = JSON.parse(localStorage.getItem('users'));
     if (!getItems) {

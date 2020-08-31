@@ -8,20 +8,21 @@ import { Product } from './../../../shared/model/product';
 })
 export class CardComponent implements OnInit {
   @Input() product: Product;
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
   whatCategory(product: Product): string {
     return product.status ? 'Cellulari' : 'Laptop';
   }
 
   statusClass(product: Product): any {
     return {
-      'cell': product.status,
-      'laptop': !product.status
+      cell: product.status,
+      laptop: !product.status
     };
   }
 }
+

@@ -12,11 +12,11 @@ const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [ AuthGuard ] },
   { path: 'list', component: ListComponent },
-  { path: 'detail/:id', component: DetailComponent, canActivate: [AuthGuard] },
+  { path: 'detail/:id', component: DetailComponent, canActivate: [ AuthGuard ] },
   { path: 'account', loadChildren: accountModule },
-  { path: '**', redirectTo:'home'}
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
@@ -24,3 +24,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
