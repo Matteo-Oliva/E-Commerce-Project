@@ -19,9 +19,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             .pipe(dematerialize());
 
 
-        // tslint:disable-next-line: typedef
+        
         function handleRoute() {
-            switch (true) {  //Sintassi Orribile if /elsi if/else
+            switch (true) {  // Sintassi Orribile usare if / else if/ else
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
                 case url.endsWith('/users/register') && method === 'POST':
@@ -38,7 +38,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         // route functions
 
-        // tslint:disable-next-line: typedef
+        
         function authenticate() {
             const { username, password } = body;
             const user = users.find(x => x.username === username && x.password === password);
@@ -52,12 +52,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             });
         }
 
-        // tslint:disable-next-line: typedef
+        
         function register() {
             const user = body;
 
             if (users.find(x => x.username === user.username)) {
-                return error('Username "' + user.username + '" is already taken')
+                return error('Username "' + user.username + '" is already taken');
             }
 
             user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
@@ -68,14 +68,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
 
-        // tslint:disable-next-line: typedef
+        
         function getUsers() {
             if (!isLoggedIn()) { return unauthorized(); }
             return ok(users);
         }
 
 
-        // tslint:disable-next-line: typedef
+        
         function deleteUser(){
             if (!isLoggedIn()) { return unauthorized(); }
 
@@ -85,32 +85,23 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         // helper functions
-
-        // tslint:disable-next-line: typedef
-        function ok(body?) {
+        
+        function ok(body?) {  
             return of(new HttpResponse({ status: 200, body }));
         }
-
-
-        // tslint:disable-next-line: typedef
+        
         function error(message) {
             return throwError({ error: { message } });
         }
-
-
-        // tslint:disable-next-line: typedef
+        
         function unauthorized() {
             return throwError({ status: 401, error: { message: 'Unauthorised' } });
         }
-
-
-        // tslint:disable-next-line: typedef
+        
         function isLoggedIn() {
             return headers.get('Authorization') === 'Bearer fake-jwt-token';
         }
-
-
-        // tslint:disable-next-line: typedef
+        
         function idFromUrl() {
             const urlParts = url.split('/');
             // tslint:disable-next-line: radix

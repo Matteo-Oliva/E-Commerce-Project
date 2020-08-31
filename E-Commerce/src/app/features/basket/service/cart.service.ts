@@ -26,17 +26,17 @@ export class CartService {
   }
 
   manageUserCart(product, isRemove, getItems) {    
-    let userLogged = JSON.parse(localStorage.getItem('user'));
-    let users = JSON.parse(localStorage.getItem('users'));
+    const userLogged = JSON.parse(localStorage.getItem('user'));
+    const users = JSON.parse(localStorage.getItem('users'));
     if (!getItems) {
       let cart = [];
       users.forEach(user => {
-        if (userLogged.id == user.id) {
+        if (userLogged.id === user.id) {
           if (product) {
             user.cart = user.cart || [];
             if (isRemove) {
-              let id = user.cart.map(prod => prod.id).indexOf(product.id)
-              user.cart.splice(id, 1)
+              const id = user.cart.map(prod => prod.id).indexOf(product.id);
+              user.cart.splice(id, 1);
             } else {
               user.cart.push(product);
             }
@@ -51,7 +51,7 @@ export class CartService {
 
     } else {
 
-      let userStorage = users.filter(user => userLogged.id == user.id);
+      const userStorage = users.filter(user => userLogged.id === user.id);
       if (userStorage && userStorage.length > 0) {
         return userStorage[0].cart || [];
       } else {
