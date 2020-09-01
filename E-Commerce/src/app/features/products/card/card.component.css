@@ -1,0 +1,17 @@
+ .mat-card {    
+     display: flex;
+    max-width: 300px;
+  max-height: 300px;
+  min-width: 300px;
+  min-height: 300px;
+  margin: 10px;
+}
+
+.mat-card-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  width: auto;
+  
+}
+

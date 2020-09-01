@@ -1,0 +1,21 @@
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
+  <mat-card class="card" fxLayout="column">
+    <img mat-card-image [src]="product.imgPath" alt="{{product.description}}">
+    <mat-card-header>
+      <mat-card-title>{{product.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container">
+        <p [ngClass]="statusClass(product)">
+          Categoria: {{whatCategory(product)}}
+        </p>
+      </div>
+      <p>
+        {{product.description}}
+      </p>
+      <mat-card-subtitle>
+        <mat-icon>euro_symbol</mat-icon>{{product.price }}
+      </mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -36,7 +36,7 @@
     "import-spacing": true,
     "indent": {
       "options": [
-        "spaces"
+        
       ]
     },
     "max-classes-per-file": false,
@@ -95,27 +95,12 @@
       }
     },
     "typedef": [
-      true,
-      "call-signature"
+      true
+      
     ],
-    "typedef-whitespace": {
-      "options": [
-        {
-          "call-signature": "nospace",
-          "index-signature": "nospace",
-          "parameter": "nospace",
-          "property-declaration": "nospace",
-          "variable-declaration": "nospace"
-        },
-        {
-          "call-signature": "onespace",
-          "index-signature": "onespace",
-          "parameter": "onespace",
-          "property-declaration": "onespace",
-          "variable-declaration": "onespace"
-        }
-      ]
-    },
+		"no-trailing-whitespace": false,
+		"no-shadowed-variable": false,
+
     "variable-name": {
       "options": [
         "ban-keywords",
@@ -142,7 +127,7 @@
     "no-output-rename": true,
     "no-outputs-metadata-property": true,
     "template-banana-in-box": true,
-    "template-no-negated-async": true,
+    "template-no-negated-async": false,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true
   },
